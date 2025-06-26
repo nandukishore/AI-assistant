@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Interview Assistant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: #4b5563 #1f2937; /* gray-600 gray-800 */
+    }
+    body.selection-override *::selection {
+      background-color: #0ea5e9; /* sky-500 */
+      color: white !important;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1f2937; /* gray-800 */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #4b5563; /* gray-600 */
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6b7280; /* gray-500 */
+    }
+    /* Simple pulse animation for listening indicator */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .animate-pulse-opacity {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    /* Animation for new Q&A turns */
+    @keyframes turnIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-turn-in {
+      animation: turnIn 0.3s ease-out forwards;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.5.1",
+    "@heroicons/react/": "https://esm.sh/@heroicons/react@^2.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans selection-override">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

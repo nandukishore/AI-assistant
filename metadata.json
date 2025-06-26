@@ -1,0 +1,9 @@
+
+{
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "name": "AI Interview Assistant",
+  "description": "",
+  "prompt": ""
+}
